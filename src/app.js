@@ -56,12 +56,16 @@ app.put("/repositories/:id", (request, response) => {// THIS ROUTE WILL BE RESPO
     return response.status(400).json({ error: "Project not Found!" });
   }
 
-  const { likes } = repositories.find(thisRepo => thisRepo.id == id);
+  //const { likes } = repositories.find(thisRepo => thisRepo.id == id);
 
   const { title, url, techs } = request.body;
 
   const repo = {
-    id, title, url, techs, likes
+    id, 
+    title, 
+    url, 
+    techs, 
+    likes:repositories[repoIndex].likes,
   }
 
   repositories[repoIndex] = repo;
